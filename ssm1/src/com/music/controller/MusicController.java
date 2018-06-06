@@ -17,11 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.music.model.Image;
 import com.music.service.ImageService;
-import com.xiaoleilu.hutool.Hutool;
-import com.xiaoleilu.hutool.db.Page;
-import com.xiaoleilu.hutool.extra.mail.MailAccount;
-import com.xiaoleilu.hutool.extra.mail.MailUtil;
-import com.xiaoleilu.hutool.util.PageUtil;
 
 @Controller
 @RequestMapping("/music")

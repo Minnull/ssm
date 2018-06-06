@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.music.dao.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.music.model.User" >
+<mapper namespace="com.music.dao.userMapper" >
+  <resultMap id="BaseResultMap" type="com.music.model.user" >
     <id column="userid" property="userid" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="username" property="username" jdbcType="VARCHAR" />
@@ -18,12 +18,11 @@
     from user
     where userid = #{userid,jdbcType=INTEGER}
   </select>
-
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from user
     where userid = #{userid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.music.model.User" >
+  <insert id="insert" parameterType="com.music.model.user" >
     insert into user (userid, name, username, 
       userpwd, musicId, touxiang
       )
@@ -31,7 +30,7 @@
       #{userpwd,jdbcType=VARCHAR}, #{musicid,jdbcType=INTEGER}, #{touxiang,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.music.model.User" >
+  <insert id="insertSelective" parameterType="com.music.model.user" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="userid != null" >
@@ -74,9 +73,9 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.music.model.User" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.music.model.user" >
     update user
-    <set>
+    <set >
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
@@ -95,7 +94,7 @@
     </set>
     where userid = #{userid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.music.model.User" >
+  <update id="updateByPrimaryKey" parameterType="com.music.model.user" >
     update user
     set name = #{name,jdbcType=VARCHAR},
       username = #{username,jdbcType=VARCHAR},
@@ -104,13 +103,4 @@
       touxiang = #{touxiang,jdbcType=VARCHAR}
     where userid = #{userid,jdbcType=INTEGER}
   </update>
-  <select id="selectByNameAndUserpwd" parameterType="map" resultMap="BaseResultMap">
-   select
-
-        <include refid="Base_Column_List" />
-   from user
-    where 
-      username = #{username,jdbcType=VARCHAR} and
-      userpwd = #{userpwd,jdbcType=VARCHAR}
-  </select>
 </mapper>

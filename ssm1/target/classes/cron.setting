@@ -1,3 +1,0 @@
-#我是注释
-[com.music.controller]
-dd.execute = */10 * * * *
